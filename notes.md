@@ -1,5 +1,5 @@
-# Notes on MEAN-Stack: Angular-CLI, MongoDB, ExpressJS, Node.js
-
+# Notes on MEAN-Stack: 
+MEAN : Angular-CLI, MongoDB, ExpressJS, Node.js.
 This will the note when the author learned from the following tutorials. The tutorials are quite good and help the author to start to master web app development with MEAN Stack.
 
 ## Some Trouble shots:
