@@ -319,6 +319,9 @@ create different conpoments, setup the corresponding route along the UI to navig
 ```
 ng g c home
 ng g c modell-center
+
+ng g c modelList
+ng g c modelDetail
 ```
 - open *app-routing.module.ts*, add the paths and also import *HomeComponent* and *ModellCenterComponet*
 
@@ -374,10 +377,25 @@ change the  *app.component.html*,
   <router-outlet></router-outlet>
 </div>
 ```
-we could check the current UI, first run build
+we could check the current UI, first run build, then check *localhost:3000/home* and *localhost:3000/models*
 ```
 ng build
 ```
+#### . nest model-list and model-detail to model center
+
+edit *modell-center.component.html*
+```
+<div class="row">
+  <div class="col-sm-9">
+    <model-detail></model-detail>
+  </div>
+
+  <div class="col-sm-3">
+    <model-list></model-list>
+  </div>
+</div>
+```
+
 
 ### Tips:
 - debugging JavaScript at Chrome, "View -> Developer -> JavaScript Console"
