@@ -21,7 +21,7 @@ MEAN:
 ###  1. Install Node.js 
 ```
 $ node -v
-$ nom -v
+$ npm -v
 ```
 ### 2. install Angluar CLI 
 ```
@@ -43,9 +43,8 @@ $ ng serve -o
 // and this distributable folder will be fed into the Express server
 $ ng build
 ```
-### 4. install express and dependencies, 
-express is the server and body parser is the middleware to handle data from server
-
+### 4. install Express and dependencies, 
+Express is the server and body parser is the middleware to handle data from server
 
 ```
 $ npm install --save express body-parser
@@ -111,7 +110,7 @@ module.exports = router;
 $ node server
 ```
 
-### 6. ongodb & mLab (online Mongodb server)
+### 6. create Mongodb at mLab (online Mongodb server)
 1. create mLab an accound, https://mlab.com/databases/mockup#collections
 2. create the Mongodb to import Mockup Modell documents into it 
 
@@ -122,7 +121,7 @@ e.g., collection "model" of mongodb "mockup"
 ### 7. REST APIs
 whenever a user makes a request to the server, e.g., post or delete operation, the server needs to interact with MongoDB to perform the required operations. For this interaction, we use Mongoose. 
 
-Monhoose is another npm package that provides Mongodb object mapping,:; Mongoose translate data in mongodb database to a javascript for web app. Similar to Mongo JS or native Mongo client.
+**Monhoose** is another npm package that provides Mongodb object mapping; Mongoose translates data inside of a mongodb database to a javascript for web app. Similar to Mongo JS or native Mongo client.
 
 #### . install mongoose package
 ```
@@ -154,7 +153,7 @@ the created mongoose model can be used to create read update and delete document
 
 #### . connect to Mongodb database
 
-all database requests are going to be managed in the api route; the connection happens in this api.js as well. 
+all database requests are going to be managed in the api route; the connection happens in this *api.js* as well. 
 
 ```
 const express = require('express');
@@ -189,7 +188,7 @@ The following will show how to code the restful API is to create read, update, d
 
 // It happens that the author's collecton file called "modell" in the mongodb.
 
-From "modell.js" exports the "modell" model. Therefore, import it into "api.js". Mongoose provide CRUD operatuions.
+From "modell.js" exports the "modell" model. Therefore, importing it into "api.js". Mongoose provide CRUD operatuions.
 ```
 const express = require('express');
 // get a hold of Express router, then for any incoming requests we are going to send back a string "api works"
@@ -244,6 +243,10 @@ router.get('/models/:id', function(req, res){
 for example: http://localhost:3000/api/models/1
 
 ### postman
+Postman is a Chrome extension, to test http requests (e.g., get, post, put, delete, update, ...) in an easy way.
+
+download Postman, 
+
 
 ### Angular CLI
 
