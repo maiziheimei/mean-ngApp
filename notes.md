@@ -112,7 +112,7 @@ $ node server
 ```
 
 ### 6. ongodb & mLab (online Mongodb server)
-1. create mLab an accound 
+1. create mLab an accound, https://mlab.com/databases/mockup#collections
 2. create the Mongodb to import Mockup Modell documents into it 
 
 ```
@@ -241,8 +241,7 @@ router.get('/models/:id', function(req, res){
 });
 
 ```
-
-### Mongoose
+for example: http://localhost:3000/api/models/1
 
 ### postman
 
