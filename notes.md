@@ -50,27 +50,44 @@ express is the server and body parser is the middleware to handle data from serv
 ```
 $ npm install --save express body-parser
 ```
-### Intellij IDE is the code editor, open this project and create "server.js"
+### 5. Intellij IDE is the code editor, open this project and create "server.js"
 ```
+// incude the required packages, Express, body-parser, 
 const express = require('express');
 const bodyParser = require('body-parser');
+//built-in app module, which is a better alternative than string concatenation when joining paths
 const path = require('path');
 
+// declare the routes of this application, and declear the port for this server
 const api = require('./server/routes/api');
 const port = 3000;
 
+//create an instance of Express
 const app = express();
+
+// app.use() to specify the folder where all angular code is placed; This will give Express the access to the 
+//distributable  folder
 app.use(express.static(path.join(__dirname, 'dist')));
 
+//for bodyParser:
+// urlencoded extended is set as true, this basically passed the text as URL encoded data
 app.use(bodyParser.urlencoded({extended: true}));
+//it parse the text as json
 app.use(bodyParser.json());
 
+// teach Express when to use the api 
 app.use('/api', api);
 
+// for the other routes, the server has to render the index.html page in the distributable folder 
+// app.get() for any matching path with wid-card "*", 
+// we are going to send the index.html into the distributable folder, 
+// now if you look at your browser "localhost:3000", Express knows it has to serve index.html, 
+// similarly for the routes as "localhost:3000/api"
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
+// this app listens the request on port 
 app.listen(port, function(){
   console.log("Server running on localhost:" + port);
 });
@@ -78,6 +95,7 @@ app.listen(port, function(){
 
 
 ### Mongodb & mLab (online Mongodb server)
+1. create mLab an accound and create the Mongodb to import documents into it 
 
 ### Mongoose
 
