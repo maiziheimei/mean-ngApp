@@ -185,6 +185,14 @@ module.exports = router;
 ```
 Now you can make a request to "localhost:3000/api", from the console there is no error, that shows the db connection is successfully established to the database. The following will show how to code the restful API is to create read, update, delete documents from the database and also simultaneously test using Postman.
 
+// it happens that author's collecton file called "modell" in the mongodb.
+
+From "modell.js" exports the "modell" model. Therefore, import this file into "api.js". Mongoose provide CRUD operatuions.
+```
+
+
+```
+
 
 ### Mongoose
 
