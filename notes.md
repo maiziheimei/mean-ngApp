@@ -11,21 +11,41 @@ This blog will step-by-step break down the original project to shwo how to devel
 Tutorials (24) :  https://www.youtube.com/watch?v=HznzUUMyV1Q&list=PLC3y8-rFHvwj200LLotCYum_9wmGeTJx9&index=15
 Source: https://github.com/gopinav/MEAN-Stack-Angular-CLI-/tree/master/ngApp
 
-### Create a new Angular CLI project with routhing
+MEAN:
+- Angular CLI
+- Express server
+- Connect angular with express
+- MongoDB
+- REST APIs
+
+###  Install Node.js 
 ```
-# create a new project with routing
-$ ng new ngApp --routing
+$ node -v
+$ nom -v
+```
+###  install Angluar CLI 
+```
+$ npm install -g @angular/cli
+$ ng -v
+```
 
-$ cd ngApp
+### Create a new Angular CLI project with routhing
+```// create a new project with routing, called "Mockup"
+$ ng new MockUp --routing
 
+$ cd MockUp
+
+// option “-o” open application in browser, "http://localhost:4200"
 $ ng serve -o
 
+//similar to the command "ng serve", "ng bulid" creates a dis folder of entire angular application 
+// and this distributable folder will be fed into the Express server
 $ ng build
 
-#install express
+#install express and dependencies, express is the server and body parser is the middleware to handle data from server
 $ npm install --save express body-parser
 ```
-
+// Intellij IDE is the code editor, open this project and create "server.js"
 
 ### Mongodb & mLab (online Mongodb server)
 
