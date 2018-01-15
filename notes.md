@@ -140,14 +140,14 @@ const modellSchema = new Schema({
   Kriterium: String,
   Beschreibung: String,
   Ausprägung_0: String,
-...
+  //...
 });
 
 // module system of node.js
 // mongoose.model creates a model
-// the first argument is model name, going to represent the modellSchema
+// the first argument is model name, "modell.js", going to represent the modellSchema
 // the third argument is the collection name in your mongodb
-module.exports = mongoose.model('mdl', modellSchema, 'modell')
+module.exports = mongoose.model('modell', modellSchema, 'modell')
 
 ```
 the created mongoose model can be used to create read update and delete documents in the mongodb collection.
@@ -155,6 +155,37 @@ the created mongoose model can be used to create read update and delete document
 #### . connect to Mongodb database
 
 all database requests are going to be managed in the api route; the connection happens in this api.js as well. 
+
+```
+const express = require('express');
+// get a hold of Express router, then for any incoming requests we are going to send back a string "api works"
+const router = express.Router();
+
+const mongoose = require('mongoose');
+
+const db = "mongodb://<dbuser>:<dbpassword>@ds247347.mlab.com:47347/mockup";
+
+//to adviod any warning that Mongoose is going to throw
+mongoose.Promise = global.Promise;
+//connect to the dababase using mongoose connect and pass the db string
+mongoose.connect(db, function(err){
+  if(err){
+    console.error("Error! " + err);
+  }
+})
+
+
+router.get('/', function(req, res){
+  res.send('api works')
+});
+
+
+// export the router
+module.exports = router;
+```
+Now you can make a request to "localhost:3000/api", from the console there is no error, that shows the db connection is successfully established to the database. The following will show how to code the restful API is to create read, update, delete documents from the database and also simultaneously test using Postman.
+
+
 ### Mongoose
 
 ### postman
