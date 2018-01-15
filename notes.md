@@ -272,6 +272,42 @@ router.post('/model', function (req, res) {
 
 to test the post operation in Posmann to see if it works.
 
+#### . update and delete a model by ID
+
+```
+//update video by its id
+router.put('/model/:id', function(req, res){
+  console.log('Update a model');
+  mdl.findByIdAndUpdate(req.params.id,
+    {
+      $set: { _id: req.body._id,  Kriterium: req.body.Kriterium, Beschreibung: req.body.Beschreibung}
+    },
+    {
+      new: true
+    },
+    function(err, updatedModel){
+      if(err)
+      {
+        res.send("Error updating model");
+      }else
+        {
+        res.json(updatedModel);
+        }
+    });
+});
+
+router.delete('/model/:id',function(req,res){
+  console.log('Delete a model');
+  mdl.findByIdAndRemove(req.params.id, function(err, deletedModel){
+    if(err) {
+      res.send("Error deleting model");
+    }else{
+      res.json(deletedModel);
+    }
+  });
+});
+
+```
 
 ### Angular CLI
 
