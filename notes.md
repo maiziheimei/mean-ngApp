@@ -18,19 +18,20 @@ MEAN:
 - MongoDB
 - REST APIs
 
-###  Install Node.js 
+###  1. Install Node.js 
 ```
 $ node -v
 $ nom -v
 ```
-###  install Angluar CLI 
+### 2. install Angluar CLI 
 ```
 $ npm install -g @angular/cli
 $ ng -v
 ```
 
-### Create a new Angular CLI project with routhing
-```// create a new project with routing, called "Mockup"
+### 3. Create a new Angular CLI project with routhing
+```
+// create a new project with routing, called "Mockup"
 $ ng new MockUp --routing
 
 $ cd MockUp
@@ -41,8 +42,12 @@ $ ng serve -o
 //similar to the command "ng serve", "ng bulid" creates a dis folder of entire angular application 
 // and this distributable folder will be fed into the Express server
 $ ng build
+```
+### 4. install express and dependencies, 
+express is the server and body parser is the middleware to handle data from server
 
-#install express and dependencies, express is the server and body parser is the middleware to handle data from server
+
+```
 $ npm install --save express body-parser
 ```
 ### Intellij IDE is the code editor, open this project and create "server.js"
