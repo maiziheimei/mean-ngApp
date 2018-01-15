@@ -374,7 +374,10 @@ change the  *app.component.html*,
   <router-outlet></router-outlet>
 </div>
 ```
-
+we could check the current UI, first run build
+```
+ng build
+```
 
 ### Tips:
 - debugging JavaScript at Chrome, "View -> Developer -> JavaScript Console"
