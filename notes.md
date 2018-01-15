@@ -106,13 +106,29 @@ router.get('/', function(req, res){
 module.exports = router;
 
 ``` 
-#### .run server, check the broswer at "localhost:3000/api" to see the string "api works"
+#### .run Express server, check the broswer at "localhost:3000/api" to see the string "api works"
 ```
 $ node server
 ```
 
-### Mongodb & mLab (online Mongodb server)
-1. create mLab an accound and create the Mongodb to import documents into it 
+### 6. ongodb & mLab (online Mongodb server)
+1. create mLab an accound 
+2. create the Mongodb to import Mockup Modell documents into it 
+
+```
+e.g., collection "model" of mongodb "mockup"
+
+```
+### 7. REST APIs
+whenever a user makes a request to the server, we get it post or delete, the server needs to interact with MongoDB to perform the required operation. For this interaction, we use Mongoose. 
+
+Monhoose is another npm package that provides Mongodb object mapping,:; Mongoose translate data in mongodb database to a javascript for web app. Similar to Mongo JS or native Mongo client.
+
+#### . install mongoose package
+```
+npm install --save mongoose
+```
+
 
 ### Mongoose
 
