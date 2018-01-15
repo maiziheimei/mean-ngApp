@@ -92,7 +92,7 @@ app.listen(port, function(){
   console.log("Server running on localhost:" + port);
 });
 ``` 
-#### create /server/routes/api.js
+#### .create /server/routes/api.js
 ```
 const express = require('express');
 // get a hold of Express router, then for any incoming requests we are going to send back a string "api works"
@@ -106,6 +106,10 @@ router.get('/', function(req, res){
 module.exports = router;
 
 ``` 
+#### .run server, check the broswer at "localhost:3000/api" to see the string "api works"
+```
+$ node server
+```
 
 ### Mongodb & mLab (online Mongodb server)
 1. create mLab an accound and create the Mongodb to import documents into it 
