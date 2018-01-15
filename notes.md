@@ -120,7 +120,7 @@ e.g., collection "model" of mongodb "mockup"
 
 ```
 ### 7. REST APIs
-whenever a user makes a request to the server, we get it post or delete, the server needs to interact with MongoDB to perform the required operation. For this interaction, we use Mongoose. 
+whenever a user makes a request to the server, e.g., post or delete operation, the server needs to interact with MongoDB to perform the required operations. For this interaction, we use Mongoose. 
 
 Monhoose is another npm package that provides Mongodb object mapping,:; Mongoose translate data in mongodb database to a javascript for web app. Similar to Mongo JS or native Mongo client.
 
@@ -128,8 +128,33 @@ Monhoose is another npm package that provides Mongodb object mapping,:; Mongoose
 ```
 npm install --save mongoose
 ```
+then, we need to have a blueprint or a schema of the mongodb object in the database, so create a folder "models" inside server folder, create a file "modell.js"
 
+```
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
+//the blueprint of the object in mongodb "mockup" collection "modell"
+const modellSchema = new Schema({
+  _id: String,
+  Kriterium: String,
+  Beschreibung: String,
+  Ausprägung_0: String,
+...
+});
+
+// module system of node.js
+// mongoose.model creates a model
+// the first argument is model name, going to represent the modellSchema
+// the third argument is the collection name in your mongodb
+module.exports = mongoose.model('mdl', modellSchema, 'modell')
+
+```
+the created mongoose model can be used to create read update and delete documents in the mongodb collection.
+
+#### . connect to Mongodb database
+
+all database requests are going to be managed in the api route; the connection happens in this api.js as well. 
 ### Mongoose
 
 ### postman
