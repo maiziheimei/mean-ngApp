@@ -309,7 +309,17 @@ router.delete('/model/:id',function(req,res){
 
 ```
 
-### Angular CLI
+### Frontend for Mongodb CRUD operations by Angular CLI
+
+#### . Angular Routing
+
+create different conpoments, setup the corresponding route along the UI to navigate to those routes.
+
+- create a *home* conpment
+```
+ng g c home
+```
+
 
 ### Tips:
 - debugging JavaScript at Chrome, "View -> Developer -> JavaScript Console"
