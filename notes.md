@@ -315,9 +315,64 @@ router.delete('/model/:id',function(req,res){
 
 create different conpoments, setup the corresponding route along the UI to navigate to those routes.
 
-- create a *home* conpment
+- create a *home* and *modell-center* conpment
 ```
 ng g c home
+ng g c modell-center
+```
+- open *app-routing.module.ts*, add the paths and also import *HomeComponent* and *ModellCenterComponet*
+
+```
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import {HomeComponent} from './home/home.component';
+import {ModellCenterComponent} from './modell-center/modell-center.component';
+
+const routes: Routes = [
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'models', component: ModellCenterComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+```
+#### . for stylying -- install bootstrap
+
+```
+npm install --save bootstrap
+```
+to use bootsrap by opening *.angular-cli.json*, add the path to bootsrap to the styles value
+
+```
+"styles": [
+        "styles.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+      ],
+```
+#### .create UI
+change the  *app.component.html*,
+```
+<nav class = "navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class=" navbar-header">
+      <a class="navbar-brand" href="#"> Mockup Modell</a>
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li> <a routerLink="/home" routerLinkActive="active"> Home</a> </li>
+      <li> <a routerLink="/models" routerLinkActive="active"> Model List</a> </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
 ```
 
 
