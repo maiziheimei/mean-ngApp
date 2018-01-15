@@ -225,7 +225,22 @@ router.get('/models', function(req, res){
 module.exports = router;
 
 ```
+from the broswer "http://localhost:3000/api/models", you can see all the retrived modell documents. If we want to get a specific document by its id, add the following request into file "api.js",
 
+```
+router.get('/models/:id', function(req, res){
+  console.log('Get request for a single video');
+  mdl.findById(req.params.id)
+    .exec(function(err, mdl){
+      if (err){
+        console.log("Error retrieving video");
+      }else {
+        res.json(mdl);
+      }
+    });
+});
+
+```
 
 ### Mongoose
 
