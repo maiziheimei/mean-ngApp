@@ -91,7 +91,7 @@ app.get('*', (req, res) => {
 app.listen(port, function(){
   console.log("Server running on localhost:" + port);
 });
-``` ()
+``` 
 #### create /server/routes/api.js
 ```
 const express = require('express');
@@ -102,11 +102,10 @@ router.get('/', function(req, res){
  res.send('api works')
   });
 
-
 // export the router
 module.exports = router;
 
-```
+``` 
 
 ### Mongodb & mLab (online Mongodb server)
 1. create mLab an accound and create the Mongodb to import documents into it 
