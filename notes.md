@@ -245,7 +245,32 @@ for example: http://localhost:3000/api/models/1
 ### postman
 Postman is a Chrome extension, to test http requests (e.g., get, post, put, delete, update, ...) in an easy way.
 
-download Postman, 
+download Postman, launch postman app, ...
+#### .post a new data into database
+
+inser the followign code into *api.js*
+```
+router.post('/model', function (req, res) {
+  console.log('post a new model');
+  var newModel = new mdl();
+  newModel._id = req.body._id;
+  newModel.Kriterium = req.body.Kriterium;
+  newModel.Beschreibung = req.body.Beschreibung;
+  newModel.IT = req.body.IT;
+  newModel.Auspraegung_0 = req.body.Auspraegung_0;
+  newModel.save(function(err, insertModel){
+    if(err){
+      console.log('Error saving new model');
+
+    }else{
+      res.json(insertModel);
+    }
+  });
+});
+```
+**Problem needed to solve is**, the *modell.js* object's attribute name can be contain "ä", ...
+
+to test the post operation in Posmann to see if it works.
 
 
 ### Angular CLI
