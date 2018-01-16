@@ -457,7 +457,61 @@ export class ModellCenterComponent implements OnInit {
 
 ```
 
+- edit "modell-list.component.ts", by adding "inputs" array
+```
+import { Component, OnInit } from '@angular/core';
 
+@Component({
+  selector: 'model-list',
+  templateUrl: './model-list.component.html',
+  styleUrls: ['./model-list.component.css'],
+  inputs: ['modells']
+})
+export class ModelListComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+```
+
+
+- edit "modell-list.component.html" and using bootstrap
+```
+<ul class="nav nav-pills nav-stacked">
+  <li *ngFor="let modell of modells"><a>{{modell._id}}} {{modell.Kriterium}}}</a></li>
+</ul>
+
+```
+
+now to test the "localhost:3000" to see the modell list and it works!
+
+####. Display modell detail
+
+**Logics:** 
+ModelCenter -> input -> ModelList -> display list
+ModelList -> output -> ModelCenter-> capture selected model
+ModelCenter -> input ->ModelDetail -> disply detail
+
+the hardcoded array is defined inside *model-center.componet.ts*, it is as input to the *model-list.componet.ts* and it will be displayed inside the *model list.componet.html* 
+
+when we click on one of the listed model, it sends an event as output from "model list component" t o "model center component" . This event contains the info about the clicked model, we will capture this model in the model-center component and send it as input again to model-detail component to disply its details
+
+
+- edit "modell-list.component.ts"
+```
+```
+
+- edit "modell-list.component.ts"
+```
+```
+- edit "modell-list.component.ts"
+```
+```
+- edit "modell-list.component.ts"
+```
+```
 
 ### Tips:
 - debugging JavaScript at Chrome, "View -> Developer -> JavaScript Console"
