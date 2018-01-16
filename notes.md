@@ -395,6 +395,68 @@ edit *modell-center.component.html*
   </div>
 </div>
 ```
+####. displaying Model list
+
+- creat a angluar class *src/app/modell.ts*
+```
+ng g cl modell
+```
+edit *modell.ts*
+```
+export class Modell {
+  _id: string;
+  Kriterium: string;
+  Beschreibung: string;
+  Auspraegung_0: String;
+  // Ausprägung_1: string;
+  // Ausprägung_2: String;
+  // Ausprägung_3: string;
+  // Ausprägung_4: string;
+  // Ausprägung_5: string;
+  // Ausprägung_6: string;
+  // Ausprägung_7: string;
+  // ggf_weitere_Ausprägungn: string;
+   TOP_Zuordnung: String;
+  // Zuständige_Partner: string;
+  // Hinweise: String;
+  // Produktionsplanung: string;
+  // Produktionssteuerung: string;
+  // Produktion: string;
+  // Personal: string;
+  IT: String;
+  // Logistik: string;
+}
+
+```
+**ToDo:** to have function to convert non-ascii to ascii. E.g., "ä" to "ae" and white space to "_"
+
+#### . test with hard code Modell example
+
+- edit the *modell-center.componet.ts*
+```
+import { Component, OnInit } from '@angular/core';
+import {Modell} from './../modell';
+@Component({
+  selector: 'app-modell-center',
+  templateUrl: './modell-center.component.html',
+  styleUrls: ['./modell-center.component.css']
+})
+export class ModellCenterComponent implements OnInit {
+
+  modells: Modell[] = [
+    {'_id': '1', 'Kriterium': 'test', 'Beschreibung': 'test', 'Auspraegung_0' : 'test', 'TOP_Zuordnung': 'test', 'IT': 'test'},
+    {'_id': '2', 'Kriterium': ' xia test', 'Beschreibung': 'xia test', 'Auspraegung_0' : 'xia test', 'TOP_Zuordnung': 'xia test', 'IT': 'xia test'}
+    ];
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+```
+
 
 
 ### Tips:
