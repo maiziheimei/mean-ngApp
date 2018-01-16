@@ -490,26 +490,69 @@ now to test the "localhost:3000" to see the modell list and it works!
 ####. Display modell detail
 
 **Logics:** 
-ModelCenter -> input -> ModelList -> display list
-ModelList -> output -> ModelCenter-> capture selected model
-ModelCenter -> input ->ModelDetail -> disply detail
+- ModelCenter -> input -> ModelList -> display list
+- ModelList -> output -> ModelCenter-> capture selected model
+- ModelCenter -> input ->ModelDetail -> disply detail
 
 the hardcoded array is defined inside *model-center.componet.ts*, it is as input to the *model-list.componet.ts* and it will be displayed inside the *model list.componet.html* 
 
 when we click on one of the listed model, it sends an event as output from "model list component" t o "model center component" . This event contains the info about the clicked model, we will capture this model in the model-center component and send it as input again to model-detail component to disply its details
 
 
-- edit "modell-list.component.ts"
+- edit "modell-list.component.html"
 ```
+<ul class="nav nav-pills nav-stacked">
+  <li  (click)="onselect(modell)" *ngFor="let modell of modells"><a>{{modell._id}} {{modell.Kriterium}}</a></li>
+</ul>
+
 ```
+to bind the click event on the particular list item. When an item is clicked, it fires a handle on select "onSelect" and pass this model
 
 - edit "modell-list.component.ts"
 ```
+import { Component, OnInit, EventEmitter } from '@angular/core';
+import {Modell} from '../modell';
+
+@Component({
+  selector: 'model-list',
+  templateUrl: './model-list.component.html',
+  styleUrls: ['./model-list.component.css'],
+  inputs: ['modells'],
+  outputs: ['SelectedModell']
+})
+export class ModelListComponent implements OnInit {
+
+  public SelectedModel = new EventEmitter();
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  onSelect(ml: Modell) {
+    this.SelectedModel.emit(ml);
+  }
+
+}
+
 ```
-- edit "modell-list.component.ts"
+to add an "EventEmitter" import, to add "outputs" the "selected model"; to define the "Selected modell"; to define the "onSelect()" envent
+
+- edit "modell-Center.component.html", to captuer the onSelect event
 ```
+<div class="row">
+  <div class="col-sm-9">
+    <model-detail></model-detail>
+  </div>
+
+  <div class="col-sm-3">
+    <model-list (SelectModell)="onSelectModell($event)" [modells]="modells"></model-list>
+  </div>
+</div>
+
 ```
-- edit "modell-list.component.ts"
+
+- edit "modell-Center.component.ts"
 ```
 ```
 
